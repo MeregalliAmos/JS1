@@ -1,1 +1,1 @@
-Prima esercitazione trainig JS
+Prima esercitazione training JS
