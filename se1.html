@@ -3,15 +3,17 @@
     <title>ES.1</title>
   </head>
   <body>
-      <button onclick="(function () {
-        console.log('click')})()">Cliccami da evento
-      </button>
-      <button 
-        onclick="funzioneClick('script')">Cliccami da script
-      </button>
-      <button id="bt3">
-        Cliccami da listener
-      </button>
+    <button
+      onclick="(function () {
+        console.log('click')})()"
+    >
+      Cliccami da evento
+    </button>
+    <button onclick="funzioneClick('script')">Cliccami da script</button>
+    <div id="div1">
+      <p>Non premere per cortesia</p>
+    </div>
+    <button id="bt3">Cliccami da listener</button>
   </body>
   <script>
     //var funzioneClick=function(){
@@ -19,10 +21,28 @@
     //};
     //funzioneClick();
 
-    var funzioneClick= function(stringa){
-      console.log("Click da "+stringa);
-    }
-    var bottone3=document.getElementById("bt3");
-    bottone3.addEventListener("click", function (){funzioneClick('listener')});
+    var funzioneClick = function (stringa) {
+      console.log("Click da " + stringa);
+    };
+    var rosso = true;
+    var bottone3 = document.getElementById("bt3");
+    bottone3.addEventListener("click", function () {
+      funzioneClick("listener");
+
+      var div1 = document.getElementById("div1");
+      document.getElementById(
+        "div1".setAttribute("style", "background-color-pink")
+      );
+      document.getElementById("div1").innerHTML =
+        "<h1> TI AVEVO DETTO DI NON CLICCARE MONA.<h1>";
+
+      if ((rosso = false)) {
+        bottone3.removeAttribute("style");
+        rosso = true;
+      } else {
+        bottone3.setAttribute("style", "background-color: red");
+        rosso = false;
+      }
+    });
   </script>
 </html>
